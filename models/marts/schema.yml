@@ -14,6 +14,10 @@ models:
       - name: date_key
         tests: [not_null, unique]
   - name: fct_readings
+    tests:
+      - dbt_expectations.expect_table_row_count_to_be_between:
+          min_value: 1
+          max_value: 100000
     columns:
       - name: reading_id
         tests: [not_null, unique]
@@ -29,3 +33,11 @@ models:
           - relationships:
               to: ref('dim_metric')
               field: metric_key
+      - name: value
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+              max_value: 500
+          - dbt_utils.accepted_range:
+              min_value: 0
