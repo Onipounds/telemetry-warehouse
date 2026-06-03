@@ -1,0 +1,13 @@
+id,device,metric,value,ts
+1,pump-3,temperature,70.1,2026-06-01 08:02:00
+2,pump-3,temperature,70.5,2026-06-01 08:07:00
+3,pump-3,temperature,70.8,2026-06-01 08:12:00
+4,pump-3,temperature,71.3,2026-06-01 08:17:00
+5,pump-3,temperature,71.5,2026-06-01 08:22:00
+6,pump-7,temperature,82.0,2026-06-01 08:03:00
+7,pump-7,temperature,86.0,2026-06-01 08:08:00
+8,pump-7,temperature,87.0,2026-06-01 08:13:00
+9,pump-7,temperature,91.2,2026-06-01 08:18:00
+10,compressor-1,vibration,0.12,2026-06-01 08:05:00
+11,compressor-1,vibration,0.15,2026-06-01 08:10:00
+12,compressor-1,vibration,0.16,2026-06-01 08:15:00

@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_device
+    columns:
+      - name: device_key
+        tests: [not_null, unique]
+  - name: dim_metric
+    columns:
+      - name: metric_key
+        tests: [not_null, unique]
+  - name: dim_date
+    columns:
+      - name: date_key
+        tests: [not_null, unique]
+  - name: fct_readings
+    columns:
+      - name: reading_id
+        tests: [not_null, unique]
+      - name: device_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_device')
+              field: device_key
+      - name: metric_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_metric')
+              field: metric_key
