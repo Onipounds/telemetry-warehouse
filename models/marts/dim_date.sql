@@ -6,10 +6,10 @@ with dates as (
 )
 
 select
-    md5(cast(date_day as varchar)) as date_key,
+    {{ dbt_utils.generate_surrogate_key(['date_day']) }} as date_key,
     date_day,
-    year(date_day)                 as year,
-    month(date_day)                as month,
-    day(date_day)                  as day,
-    dayname(date_day)              as weekday
+    extract(year  from date_day) as year,
+    extract(month from date_day) as month,
+    extract(day   from date_day) as day,
+    {{ dbt_date.day_name('date_day', short=false) }}     as weekday
 from dates
